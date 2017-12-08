@@ -6,6 +6,7 @@
 * {
   border: 0;
   margin: 0;
+  color: black;
 }
 
 body {
@@ -42,6 +43,8 @@ body {
 
 .pic {
   width: 100%;
+  border: 2px solid #444;
+  box-sizing: border-box;
 }
 
 .box {
@@ -55,17 +58,20 @@ body {
 }
 
 .door {
-  transition: all 3s ease;
+  transition: transform 3s ease;
   transform-origin: left;
   position: absolute;
   display: flex;
   top: 0;
   width: 100%;
   height: 100%;
-  border: 1px dashed rgba(255,255,255,0.2);
-  align-items: center;
-  text-align: center;
-  font-size: 10vmin;
+  border: 1px dashed #444;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 4vmin;
+  text-shadow: 0 0 1vmin white;
+  padding: .2em;
+  box-sizing: border-box;
 }
 
 .open {
