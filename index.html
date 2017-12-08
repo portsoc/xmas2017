@@ -1,5 +1,5 @@
 <!doctype html>
-<title>Xmas 2017</title>
+<title>Star Wars Advent Calendar</title>
 
 <style>
 
@@ -14,22 +14,44 @@ body {
   perspective: 200vh;
 }
 
+.door {
+  background: url(bg.jpg);
+  background-size: 100vw;
+}
+
+
 #advent {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
   width: 100vw;
   height: 100vh;
+}
+
+@media screen and (orientation:portrait) {
+  #advent {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
+
+@media screen and (orientation:landscape) {
+  #advent {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+.pic {
+  width: 100%;
 }
 
 .box {
   position: relative;
   display: flex;
-  width: 1fr;
-  height: 1fr;
+  width: 15vmin;
+  height: 15vmin;
   align-items: center;
   justify-items: center;
-  margin: 3vmin;
+  margin: 1vmin;
 }
 
 .door {
@@ -40,18 +62,11 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  border: 1px dashed white;
-  background: green;
+  border: 1px dashed rgba(255,255,255,0.2);
   align-items: center;
   text-align: center;
   font-size: 10vmin;
 }
-
-.box:nth-child(5n)   .door { background-color: #0b0; }
-.box:nth-child(5n+1) .door { background-color: #1c1; }
-.box:nth-child(5n+2) .door { background-color: #2d2; }
-.box:nth-child(5n+3) .door { background-color: #3e3; }
-.box:nth-child(5n+4) .door { background-color: #4f4; }
 
 .open {
   transform: rotatey(-92deg);
@@ -69,7 +84,7 @@ body {
 
 <template id=door>
   <div class=box>
-    <p>This goes behind the door</p>
+    <img class=pic src="" alt="A surprise Star Wars character."</p>
     <div class=door>24</div>
   </div>
 </template>
@@ -77,11 +92,22 @@ body {
 
 <script>
   for (let i = 1; i<25; i++) {
-    let door = document.importNode(window.door.content, true);
-    console.log(door);
-    door.children[0].id="door"+i;
-    door.querySelector(".door").textContent = i;
-    door.querySelector(".door").addEventListener('click', (e) => e.target.classList.add('open'));
-    window.advent.appendChild(door);
+    let frag = document.importNode(window.door.content, true);
+    let box = frag.children[0];
+    box.id="door"+i;
+    box.querySelector(".pic").src = `i/${i}.jpg`;
+    box.querySelector(".door").textContent = i;
+    box.querySelector(".door").addEventListener('click', (e) => e.target.classList.add('open'));
+    window.advent.appendChild(frag);
+
+    let inDoc = document.querySelector("#door"+i)
+    let rect = inDoc.getBoundingClientRect();
+    inDoc.querySelector(".door").setAttribute("style", `background-position: -${rect.x}px -${rect.y}px `);
+    console.log(rect.x, rect.y);
+
   }
+
+
+
+
 </script>
