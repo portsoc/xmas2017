@@ -111,8 +111,8 @@ body {
     for (let i = 1; i<25; i++) {
       let inDoc = document.querySelector("#door"+i)
       let rect = inDoc.getBoundingClientRect();
-      inDoc.querySelector(".door").setAttribute("style", `background-position: -${rect.x}px -${rect.y}px `);
-      console.log(rect.x, rect.y);
+      // acount for border width
+      inDoc.querySelector(".door").setAttribute("style", `background-position: -${rect.x+1}px -${rect.y+1}px `);
     }
   }
 
