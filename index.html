@@ -1,4 +1,87 @@
 <!doctype html>
 <title>Xmas 2017</title>
 
-<p>Merry Christmas!  Ho, ho, ho!</p>
+<style>
+
+* {
+  border: 0;
+  margin: 0;
+}
+
+body {
+  background: url(bg.jpg);
+  background-size: 100vw;
+  perspective: 200vh;
+}
+
+#advent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  width: 1fr;
+  height: 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 3vmin;
+}
+
+.door {
+  transition: all 3s ease;
+  transform-origin: left;
+  position: absolute;
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed white;
+  background: green;
+  align-items: center;
+  text-align: center;
+  font-size: 10vmin;
+}
+
+.box:nth-child(5n)   .door { background-color: #0b0; }
+.box:nth-child(5n+1) .door { background-color: #1c1; }
+.box:nth-child(5n+2) .door { background-color: #2d2; }
+.box:nth-child(5n+3) .door { background-color: #3e3; }
+.box:nth-child(5n+4) .door { background-color: #4f4; }
+
+.open {
+  transform: rotatey(-92deg);
+}
+
+.box:hover .open {
+  transform: rotatey(-116deg);
+}
+
+</style>
+
+<div id=advent>
+</div>
+
+
+<template id=door>
+  <div class=box>
+    <p>This goes behind the door</p>
+    <div class=door>24</div>
+  </div>
+</template>
+
+
+<script>
+  for (let i = 1; i<25; i++) {
+    let door = document.importNode(window.door.content, true);
+    console.log(door);
+    door.children[0].id="door"+i;
+    door.querySelector(".door").textContent = i;
+    door.querySelector(".door").addEventListener('click', (e) => e.target.classList.add('open'));
+    window.advent.appendChild(door);
+  }
+</script>
