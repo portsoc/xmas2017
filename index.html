@@ -105,15 +105,19 @@ body {
     box.querySelector(".door").textContent = i;
     box.querySelector(".door").addEventListener('click', (e) => e.target.classList.add('open'));
     window.advent.appendChild(frag);
-
-    let inDoc = document.querySelector("#door"+i)
-    let rect = inDoc.getBoundingClientRect();
-    inDoc.querySelector(".door").setAttribute("style", `background-position: -${rect.x}px -${rect.y}px `);
-    console.log(rect.x, rect.y);
-
   }
 
+  function adjustDoorBackgrounds() {
+    for (let i = 1; i<25; i++) {
+      let inDoc = document.querySelector("#door"+i)
+      let rect = inDoc.getBoundingClientRect();
+      inDoc.querySelector(".door").setAttribute("style", `background-position: -${rect.x}px -${rect.y}px `);
+      console.log(rect.x, rect.y);
+    }
+  }
 
+  adjustDoorBackgrounds();
 
+  window.addEventListener('resize', adjustDoorBackgrounds);
 
 </script>
