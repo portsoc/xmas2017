@@ -97,7 +97,20 @@ body {
 
 
 <script>
-  for (let i = 1; i<25; i++) {
+
+  let order = JSON.parse(localStorage.getItem("firstorder"));
+  if (!order) {
+    order = [...new Array(25).keys()].slice(1);
+    for (let i = 0; i<100; i++) {
+      order.sort((x,y) => Math.random() > 0.5 );
+    }
+    localStorage.setItem("firstorder", JSON.stringify(order));
+  }
+  console.log(order);
+
+
+  for (let j = 0; j<24; j++) {
+    let i = order[j];
     let frag = document.importNode(window.door.content, true);
     let box = frag.children[0];
     box.id="door"+i;
