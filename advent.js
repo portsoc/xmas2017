@@ -52,13 +52,14 @@ function prepareDoor(i) {
   window.advent.appendChild(frag);
 }
 
+
 function doorClicked(e) {
   let doorNumber = parseInt(e.target.dataset.door);
   if (doorNumber <= new Date().getDate()) {
     if (!open.includes(doorNumber)) {
+      new Audio(`a/${doorNumber}.ogg`).play();
       open.push(doorNumber);
       e.target.classList.add('open');
-      audio.play();
     }
     localStorage.setItem("advent_open", JSON.stringify(open));
   }
@@ -72,8 +73,6 @@ function adjustDoorBackgrounds() {
     inDoc.querySelector(".door").setAttribute("style", `background-position: -${rect.x+1}px -${rect.y+1}px `);
   }
 }
-
-const audio = new Audio('force.ogg');
 
 adjustDoorBackgrounds();
 
