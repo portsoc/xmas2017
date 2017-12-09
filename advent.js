@@ -1,3 +1,8 @@
+if (window.location.hash == "#reset") {
+  localStorage.removeItem("advent_open");
+  window.location.hash="";
+}
+
 /**
  * load the randomised order from local storage, if it has been set.
  * and if it's not set, create and store it.
