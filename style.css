@@ -20,6 +20,7 @@ body, .door {
   background: red;
   width: 15vmin;
   height: 15vmin;
+  align-self: center;
 }
 
 main {
