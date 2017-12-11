@@ -77,3 +77,28 @@ function adjustDoorBackgrounds() {
 adjustDoorBackgrounds();
 
 window.addEventListener('resize', adjustDoorBackgrounds);
+
+
+function snow() {
+  const flakes = 4;
+  const maxscale = 3;
+  const offset = 2*screen.height;
+
+  for (let i=0;i<300; i++) {
+    let flake = 1 + Math.round(Math.random() * (flakes-1) );
+  	let xpos = Math.random() * screen.width * 2;
+  	let ypos = Math.random() * offset - offset -100;
+  	let scale = Math.random() * maxscale;
+  	let speed = Math.round( (maxscale*50)-(scale*50) );
+  	let delay = Math.round( Math.random() * maxscale );
+  	let anim = Math.round( Math.random() ) + 1;
+
+    let img = document.createElement("img");
+    img.src="i/"+flake+".svg";
+  	img.classList.add("f"+anim);
+    img.style=`width: ${scale}ex; z-index: 1000; position: absolute; top: ${ypos}px; left: ${xpos}px; animation-delay: ${delay}s; animation-duration: ${speed}s; opacity: 1;`;
+    document.body.appendChild(img);
+  }
+}
+
+snow();

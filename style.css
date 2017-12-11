@@ -67,3 +67,26 @@ img {
   transform: rotatey(-95deg);
 
 }
+
+
+.f1 {
+    border: none;
+    animation: fone 50s infinite;
+}
+
+.f2 {
+    border: none;
+    animation: ftwo 60s infinite;
+}
+
+@keyframes fone {
+  0% {transform: translateX(0px) translateY(0px) rotate(-90deg); opacity: 0; }
+  25% {opacity: 0.75; }
+  100% {transform: translateX(-400px) translateY(3000px) rotate(90deg); opacity: 0; }
+}
+
+@keyframes ftwo {
+    0% {transform: translateX(0px) translateY(0px) rotate(-50deg); opacity: 0; }
+  25% {opacity: 0.5; }
+  100% {transform: translateX(-200px) translateY(4000px) rotate(216deg); opacity: 0; }
+}

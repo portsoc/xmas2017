@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="506px" height="677px" viewBox="0 0 1012 1344" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="Group" stroke="#FFFFFF" stroke-width="8" fill-rule="evenodd" fill-opacity="0" line-opacity="0.5">
+          <path d="M0,0 L338,0 L167,172 C169,395.333333 169.666667,507 169,507 C74,507 0,436 0,337 C0,337 0,224.666667 0,0 Z" id="Path"></path>
+          <polygon id="Path-2" transform="translate(252.500000, 86.000000) scale(-1, -1) translate(-252.500000, -86.000000) " points="167 3.32534e-12 338 3.32534e-12 167 172"></polygon>
+          <path d="M167,172 C281,172 338,172 338,172 C561,172 561,508 338,507 C338,508.333333 281,565 167,677 L167,172 Z" id="Path-2"></path>
+      </g>
+</svg>
