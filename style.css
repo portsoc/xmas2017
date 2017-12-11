@@ -9,6 +9,7 @@ html, body {
 
 body {
   perspective: 400vw;
+  overflow: hidden;
 }
 
 body, .door {
